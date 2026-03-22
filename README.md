@@ -26,7 +26,8 @@ Prof. Bruno Rafael Araújo Vasconcelos
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Pré-requisitos](#pré-requisitos)
 - [Como Instalar](#como-instalar)
-- [Como Rodar](#como-rodar)
+- [Como Rodar (Notebook)](#como-rodar-notebook)
+- [Interface Gráfica Web (Novo!)](#interface-gráfica-web-novo)
 - [Como Testar](#como-testar)
 - [Métricas Avaliadas](#métricas-avaliadas)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -148,13 +149,20 @@ Com base nas características do dataset e na escolha das 3 doenças, esperamos 
 disease-prediction-ml/
 │
 ├── 📓 disease_prediction.ipynb   # Notebook principal com todo o código
+├── 🐍 train_and_save_model.py    # Script para treinar e exportar o modelo
+├── 🌐 app.py                     # Servidor Web Flask (Backend da Interface)
 ├── 📄 README.md                  # Este arquivo
-├── 📄 requirements.txt           # Dependências do projeto
+├── 📄 requirements.txt           # Dependências do projeto (inclui Flask)
 │
 ├── 📂 data/
 │   └── dataset.csv               # Baixar do Kaggle (não incluso)
 │
-└── 📂 outputs/                   # Gerado ao executar o notebook
+├── 📂 models/                    # Artefatos exportados (rf_model.pkl, label_encoder.pkl)
+│
+├── 📂 templates/                 # Arquivo HTML do frontend (index.html)
+├── 📂 static/                    # Estilos premium (CSS) e Lógica (JS)
+│
+└── 📂 outputs/                   # Gráficos gerados ao executar o notebook
     ├── distribuicao_classes.png
     ├── top_sintomas.png
     ├── feature_selection_chi2.png
@@ -217,7 +225,7 @@ disease-prediction-ml/
 
 ---
 
-## Como Rodar
+## Como Rodar (Notebook)
 
 ### Opção 1 — Interface Jupyter (recomendado)
 
@@ -244,6 +252,33 @@ jupyter nbconvert --to notebook --execute disease_prediction.ipynb --output dise
 > ```python
 > CSV_PATH = 'data/dataset.csv'  # ajuste se necessário
 > ```
+
+---
+
+## Interface Gráfica Web (Novo!)
+
+O projeto agora conta com uma incrível interface gráfica amigável rodando diretamente no navegador para testar o modelo empíricamente!
+
+### Como iniciar a Interface:
+
+**1. Gere os artefatos do modelo:**
+A interface web funciona totalmente desacoplada do Jupyter. Portanto, primeiro você precisa extrair o RandomForest executando o script de treinamento:
+```bash
+python train_and_save_model.py
+```
+*(Isso vai gerar a pasta `/models` com os `.pkl` essenciais e as features selecionadas).*
+
+**2. Inicie o Servidor Backend (Flask):**
+```bash
+python app.py
+```
+
+**3. Acesse e Teste:**
+Abra o seu navegador de internet padrão (Chrome, Edge) e acesse:
+👉 **http://127.0.0.1:5000**
+
+- A interface exibirá os sintomas vitais validados pela Seleção de Features.
+- Selecione (usando os "toggles") o que o paciente está sentindo e clique em **"Analisar Sintomas"**. O diagnóstico aparecerá na área lateral dinamicamente!
 
 ---
 
@@ -328,9 +363,11 @@ print(f"Probabilidades       : {dict(zip(le.classes_, probabilidade[0].round(3))
 | `pandas` | ≥ 1.3 | Manipulação e filtragem do dataset |
 | `numpy` | ≥ 1.21 | Operações numéricas |
 | `scikit-learn` | ≥ 1.0 | Modelo, métricas e seleção de features |
+| `Flask` | ≥ 3.0 | Servidor Web Backend e API REST |
+| `joblib` | ≥ 1.0 | Salvamento e persistência do modelo ML (`.pkl`) |
 | `matplotlib` | ≥ 3.4 | Geração de gráficos |
 | `seaborn` | ≥ 0.11 | Visualizações estatísticas |
-| `jupyter` | ≥ 1.0 | Ambiente de desenvolvimento |
+| `jupyter` | ≥ 1.0 | Ambiente de desenvolvimento original |
 
 ---
 

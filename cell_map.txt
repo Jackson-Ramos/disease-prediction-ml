@@ -1,0 +1,39 @@
+Total cells: 37
+
+  Cell  0: markdown   | # Previsão de Doenças com Aprendizagem de Máquina
+  Cell  1: markdown   | ## 1. Importação das Bibliotecas
+  Cell  2: code       | import pandas as pd
+  Cell  3: markdown   | ## 2. Carregamento e Filtragem dos Dados
+  Cell  4: code       | # ⚠️ Ajuste o caminho para onde seu arquivo CSV está salvo
+  Cell  5: code       | # Filtrando apenas as 3 doenças escolhidas
+  Cell  6: markdown   | ## 3. Análise Exploratória dos Dados (EDA)
+  Cell  7: code       | # Distribuição das classes
+  Cell  8: code       | # Verificação de valores ausentes
+  Cell  9: markdown   | ### 3.2 Verificação de Valores Ausentes e Tipos de Dados
+  Cell 10: code       | # Top sintomas mais frequentes por doença
+  Cell 11: markdown   | ## 4. Preparação dos Dados
+  Cell 12: code       | X = df[feature_cols].values
+  Cell 13: code       | # Divisão treino/teste (80/20) com estratificação
+  Cell 14: markdown   | ## 5. Seleção de Features (Feature Selection)
+  Cell 15: code       | # Etapa 1: Remover features com variância zero (sintomas que nunca aparecem ou s
+  Cell 16: code       | # Etapa 2: Chi-Quadrado — selecionar as K melhores features estatisticamente rel
+  Cell 17: code       | # Visualização dos scores Chi² das features selecionadas
+  Cell 18: markdown   | ## 6. Treinamento do Modelo — Random Forest
+  Cell 19: code       | # Treinamento do Random Forest
+  Cell 20: markdown   | ## 7. Avaliação do Modelo
+  Cell 21: code       | # Predições
+  Cell 22: code       | # Relatório completo por classe
+  Cell 23: markdown   | ### Relatório Detalhado por Classe
+  Cell 24: code       | # Gráfico de barras com as métricas
+  Cell 25: markdown   | ## 8. Matriz de Confusão
+  Cell 26: code       | cm = confusion_matrix(y_test, y_pred)
+  Cell 27: markdown   | ## 9. Importância das Features (Random Forest)
+  Cell 28: code       | # Feature importance do Random Forest
+  Cell 29: markdown   | ## 10. Validação Cruzada (Cross-Validation)
+  Cell 30: code       | # Validação cruzada estratificada com 5 folds
+  Cell 31: code       | # Visualização da validação cruzada
+  Cell 32: markdown   | ## 11. Comparação: Modelo Completo vs. Modelo com Feature Selection
+  Cell 33: code       | # Modelo sem feature selection (todas as features)
+  Cell 34: code       | # Gráfico comparativo
+  Cell 35: markdown   | ## 12. Resumo Final e Conclusões
+  Cell 36: code       | print('=' * 55)

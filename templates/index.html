@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SymptoAI - Previsão de Doenças</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-decor"></div>
+    <div class="background-decor decor-2"></div>
+
+    <main class="container">
+        <!-- Sidebar Esquerda -->
+        <aside class="sidebar glass-panel">
+            <div class="logo-area">
+                <div class="logo-icon"></div>
+                <h1>SymptoAI</h1>
+            </div>
+            
+            <p class="description">
+                Diagnóstico auxiliado por <strong>Inteligência Artificial</strong>. O modelo RandomForest analisa seus sintomas e 
+                prevê a condição clínica com base nas variáveis selecionadas (Feature Selection).
+            </p>
+
+            <div class="info-box">
+                <h3>Doenças Suportadas</h3>
+                <ul>
+                    <li><span class="dot pneumonia"></span> Pneumonia</li>
+                    <li><span class="dot bronchitis"></span> Bronquite Aguda</li>
+                    <li><span class="dot cystitis"></span> Cistite</li>
+                </ul>
+            </div>
+            
+            <div class="result-container glass-panel hidden" id="resultCard">
+                <h3 class="result-title">Predição do Modelo:</h3>
+                <h2 id="diseaseName" class="disease-name">--</h2>
+                <div class="confidence-bar-bg">
+                    <div class="confidence-bar-fill" id="confidenceFill" style="width: 0%;"></div>
+                </div>
+                <p class="confidence-text">Confiança: <span id="confidenceValue">0%</span></p>
+                
+                <button id="resetBtn" class="btn secondary-btn">Fazer Nova Previsão</button>
+            </div>
+        </aside>
+
+        <!-- Formulário Dinâmico Direita -->
+        <section class="form-section glass-panel">
+            <header class="section-header">
+                <h2>O que você está sentindo?</h2>
+                <p>Selecione os sintomas clinicamente relevantes para iniciar a análise.</p>
+            </header>
+
+            <!-- Loading Spinner (antes de buscar features da API) -->
+            <div id="loadingFeatures" class="loader">Carregando formulário dinâmico...</div>
+
+            <!-- Formulário vai aqui -->
+            <form id="predictionForm" class="hidden">
+                <div class="symptoms-grid" id="symptomsGrid">
+                    <!-- Javascript populará os 40 sintomas aqui -->
+                </div>
+                
+                <div class="form-footer">
+                    <button type="submit" id="submitBtn" class="btn primary-btn">
+                        <span>Analisar Sintomas</span>
+                        <div class="spinner hidden" id="submitSpinner"></div>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
