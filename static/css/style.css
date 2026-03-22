@@ -1,0 +1,412 @@
+:root {
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --secondary: #10B981;
+  --bg-color: #0F172A;
+  --surface-color: rgba(30, 41, 59, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --neumorphic-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-blur: blur(12px);
+  --font-family: 'Inter', sans-serif;
+  --pneumonia: #EF4444;
+  --bronchitis: #F59E0B;
+  --cystitis: #3B82F6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efeitos de fundo em neon suaves */
+.background-decor {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
+  z-index: -1;
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite alternate;
+}
+
+.decor-2 {
+  top: 60%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(15, 23, 42, 0) 70%);
+  animation-duration: 20s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(40px) scale(1.1); }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  width: 95%;
+  max-width: 1300px;
+  height: 90vh;
+}
+
+/* Painéis com Glassmorphism */
+.glass-panel {
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--neumorphic-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Esquerda */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.logo-area h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.description strong {
+  color: var(--text-main);
+}
+
+.info-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.info-box h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.info-box ul {
+  list-style: none;
+}
+
+.info-box li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.pneumonia { background-color: var(--pneumonia); box-shadow: 0 0 8px var(--pneumonia);}
+.bronchitis { background-color: var(--bronchitis); box-shadow: 0 0 8px var(--bronchitis);}
+.cystitis { background-color: var(--cystitis); box-shadow: 0 0 8px var(--cystitis);}
+
+/* Seção de Formulário (Direita) */
+.form-section {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  overflow-y: auto;
+  padding-right: 10px;
+  flex-grow: 1;
+  max-height: 60vh;
+}
+
+/* Custom Checkbox (Toggle Pill) */
+.symptom-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.symptom-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.symptom-label input {
+  display: none;
+}
+
+.symptom-name {
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Toggle Ativado */
+.symptom-label input:checked + .symptom-name {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.symptom-label input:checked ~ .toggle-switch {
+  background: var(--primary);
+}
+
+.symptom-label input:checked ~ .toggle-switch::after {
+  transform: translateX(18px);
+  background: #FFF;
+}
+
+.symptom-label.active {
+  border-color: var(--primary);
+  background: rgba(79, 70, 229, 0.1);
+}
+
+/* Checkbox Scrollbar Custom */
+.symptoms-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.symptoms-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); 
+  border-radius: 10px;
+}
+.symptoms-grid::-webkit-scrollbar-thumb {
+  background: var(--primary); 
+  border-radius: 10px;
+}
+
+/* Footer / Submit */
+.form-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #FFF;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Resultado Predict Panel */
+.result-container {
+  margin-top: 2rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.result-title {
+  color: var(--secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.result-container .disease-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+/* Progress Bar Custom */
+.confidence-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  background: var(--secondary);
+  border-radius: 10px;
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.confidence-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.confidence-text span {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+
+.loader {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Reponsividade */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin: 2rem 0;
+  }
+}
