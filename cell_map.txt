@@ -1,4 +1,4 @@
-Total cells: 43
+Total cells: 44
 
   Cell  0: markdown   | # Previsão de Doenças com Aprendizagem de Máquina
   Cell  1: markdown   | ## 1. Importação das Bibliotecas
@@ -43,3 +43,4 @@ Total cells: 43
   Cell 40: code       | # Gráfico comparativo
   Cell 41: markdown   | ## 12. Resumo Final e Conclusões
   Cell 42: code       | print('=' * 55)
+  Cell 43: markdown   | CONCLUSÃO:
