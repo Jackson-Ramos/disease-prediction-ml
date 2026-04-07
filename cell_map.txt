@@ -1,4 +1,4 @@
-Total cells: 37
+Total cells: 43
 
   Cell  0: markdown   | # Previsão de Doenças com Aprendizagem de Máquina
   Cell  1: markdown   | ## 1. Importação das Bibliotecas
@@ -24,16 +24,22 @@ Total cells: 37
   Cell 21: code       | # Predições
   Cell 22: code       | # Relatório completo por classe
   Cell 23: markdown   | ### Relatório Detalhado por Classe
-  Cell 24: code       | # Gráfico de barras com as métricas
-  Cell 25: markdown   | ## 8. Matriz de Confusão
-  Cell 26: code       | cm = confusion_matrix(y_test, y_pred)
-  Cell 27: markdown   | ## 9. Importância das Features (Random Forest)
-  Cell 28: code       | # Feature importance do Random Forest
-  Cell 29: markdown   | ## 10. Validação Cruzada (Cross-Validation)
-  Cell 30: code       | # Validação cruzada estratificada com 5 folds
-  Cell 31: code       | # Visualização da validação cruzada
-  Cell 32: markdown   | ## 11. Comparação: Modelo Completo vs. Modelo com Feature Selection
-  Cell 33: code       | # Modelo sem feature selection (todas as features)
-  Cell 34: code       | # Gráfico comparativo
-  Cell 35: markdown   | ## 12. Resumo Final e Conclusões
-  Cell 36: code       | print('=' * 55)
+  Cell 24: markdown   | ### Métricas por Classe — Visualização Comparativa
+  Cell 25: code       | # Gráfico de barras agrupado — Precisão, Recall e F1-Score por classe
+  Cell 26: code       | # Gráfico de barras com as métricas
+  Cell 27: markdown   | ### Curva ROC (*Receiver Operating Characteristic*)
+  Cell 28: code       | # Binarizar as classes para o cálculo OvR
+  Cell 29: markdown   | ## 8. Matriz de Confusão
+  Cell 30: code       | cm = confusion_matrix(y_test, y_pred)
+  Cell 31: markdown   | ## 9. Importância das Features (Random Forest)
+  Cell 32: code       | # Feature importance do Random Forest
+  Cell 33: markdown   | ## 10. Validação Cruzada (Cross-Validation)
+  Cell 34: code       | # Validação cruzada estratificada com 5 folds
+  Cell 35: code       | # Visualização da validação cruzada
+  Cell 36: markdown   | ### Curva de Aprendizado (*Learning Curve*)
+  Cell 37: code       | # Curva de Aprendizado (Learning Curve)
+  Cell 38: markdown   | ## 11. Comparação: Modelo Completo vs. Modelo com Feature Selection
+  Cell 39: code       | # Modelo sem feature selection (todas as features)
+  Cell 40: code       | # Gráfico comparativo
+  Cell 41: markdown   | ## 12. Resumo Final e Conclusões
+  Cell 42: code       | print('=' * 55)

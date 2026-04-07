@@ -268,8 +268,45 @@ MARKDOWN_CELLS = {
     "são calculadas. Um bom modelo deve apresentar valores altos e balanceados em todas as métricas.\n",
 ],
 
-# ── Cell 23: Matriz de Confusão ──────────────────────────────────────────────
-23: [
+# ── Cell 24: Métricas por Classe ─────────────────────────────────────────────
+24: [
+    "### Métricas por Classe — Visualização Comparativa\n",
+    "\n",
+    "Embora o relatório textual acima apresente os valores numéricos de cada métrica, uma **visualização "
+    "gráfica** torna a comparação entre as classes muito mais imediata. O gráfico de barras agrupado a "
+    "seguir exibe **Precisão, Recall e F1-Score** lado a lado para cada doença, permitindo identificar "
+    "rapidamente:\n",
+    "\n",
+    "- Se alguma classe apresenta desempenho **significativamente inferior** às demais;\n",
+    "- Se há **desequilíbrio** entre precisão e recall para alguma doença (o que indicaria viés do modelo);\n",
+    "- Se o modelo mantém **consistência** de desempenho em todas as classes.\n",
+],
+
+# ── Cell 27: Curva ROC (era Cell 25, deslocada +2) ──────────────────────────
+27: [
+    "### Curva ROC (*Receiver Operating Characteristic*)\n",
+    "\n",
+    "A **Curva ROC** é uma ferramenta essencial para avaliar a capacidade discriminativa de um classificador. "
+    "Ela ilustra a relação entre a **Taxa de Verdadeiros Positivos (Sensibilidade)** e a **Taxa de Falsos "
+    "Positivos (1 − Especificidade)** para diferentes limiares de decisão.\n",
+    "\n",
+    "Em problemas **multiclasse**, a abordagem mais comum é a estratégia **One-vs-Rest (OvR)**: para cada "
+    "classe, o modelo é avaliado como se fosse um classificador binário — a classe em questão contra todas "
+    "as demais. Isso permite traçar **uma curva ROC por classe** e calcular a **AUC (Área Sob a Curva)** "
+    "individual.\n",
+    "\n",
+    "**Interpretação:**\n",
+    "\n",
+    "- Uma **AUC = 1.0** indica separação perfeita entre a classe e as demais;\n",
+    "- Uma **AUC = 0.5** equivale a um classificador aleatório (linha diagonal tracejada);\n",
+    "- Valores **acima de 0.90** são considerados excelentes em aplicações clínicas.\n",
+    "\n",
+    "O gráfico a seguir apresenta as curvas ROC de cada doença, com a respectiva AUC anotada na legenda, "
+    "bem como a **macro-average ROC** que resume o desempenho global do modelo.\n",
+],
+
+# ── Cell 29: Matriz de Confusão (deslocada +4 do original) ──────────────────
+29: [
     "## 8. Matriz de Confusão\n",
     "\n",
     "A **Matriz de Confusão** é uma ferramenta visual fundamental para avaliar modelos de classificação. Ela "
@@ -288,8 +325,8 @@ MARKDOWN_CELLS = {
     "- Serve de base para ajustar o modelo ou coletar mais dados de classes problemáticas.\n",
 ],
 
-# ── Cell 25: Importância das Features ────────────────────────────────────────
-25: [
+# ── Cell 31: Importância das Features (deslocada +4 do original) ────────────
+31: [
     "## 9. Importância das Features (Random Forest)\n",
     "\n",
     "Uma das grandes vantagens do Random Forest é sua capacidade nativa de calcular a **importância de cada "
@@ -314,8 +351,8 @@ MARKDOWN_CELLS = {
     "permitindo identificar os **sintomas mais determinantes** para cada diagnóstico.\n",
 ],
 
-# ── Cell 27: Validação Cruzada ───────────────────────────────────────────────
-27: [
+# ── Cell 33: Validação Cruzada (deslocada +4 do original) ───────────────────
+33: [
     "## 10. Validação Cruzada (Cross-Validation)\n",
     "\n",
     "A avaliação feita na Seção 7 utiliza apenas **uma única divisão** treino/teste, o que pode não refletir "
@@ -348,8 +385,29 @@ MARKDOWN_CELLS = {
     "- Se houver grande variabilidade entre folds, isso pode indicar *overfitting* ou dados insuficientes.\n",
 ],
 
-# ── Cell 30: Comparação de Modelos ───────────────────────────────────────────
-30: [
+# ── Cell 36: Curva de Aprendizado ──────────────────────────────────────────
+36: [
+    "### Curva de Aprendizado (*Learning Curve*)\n",
+    "\n",
+    "A **Curva de Aprendizado** é uma ferramenta visual poderosa para diagnosticar se um modelo sofre "
+    "de *overfitting* (sobreajuste) ou *underfitting* (subajuste). Ela mostra como a acurácia de "
+    "**treino** e **validação** evolui à medida que o tamanho do conjunto de treinamento aumenta.\n",
+    "\n",
+    "#### Como interpretar?\n",
+    "\n",
+    "| Cenário | Treino | Validação | Diagnóstico |\n",
+    "|---------|--------|-----------|-----------| \n",
+    "| **Bom ajuste** | Alta e estável | Alta, próxima do treino | Modelo generaliza bem |\n",
+    "| **Overfitting** | Muito alta (≈1.0) | Significativamente menor que treino | Modelo memoriza o treino |\n",
+    "| **Underfitting** | Baixa | Baixa, próxima do treino | Modelo é simples demais |\n",
+    "\n",
+    "Se as curvas de treino e validação **convergem** para valores altos e **próximos entre si**, "
+    "isso é um forte indicador de que o modelo generaliza bem e não está memorizando os dados de "
+    "treinamento — complementando o argumento do baixo desvio padrão observado na validação cruzada.\n",
+],
+
+# ── Cell 38: Comparação de Modelos (deslocada +6 do original) ───────────────
+38: [
     "## 11. Comparação: Modelo Completo vs. Modelo com Feature Selection\n",
     "\n",
     "Para demonstrar concretamente o **impacto da Seleção de Features**, esta seção compara dois modelos:\n",
@@ -374,8 +432,8 @@ MARKDOWN_CELLS = {
     "Os gráficos a seguir comparam visualmente as métricas de ambos os modelos.\n",
 ],
 
-# ── Cell 33: Conclusões ──────────────────────────────────────────────────────
-33: [
+# ── Cell 41: Conclusões (deslocada +6 do original) ─────────────────────────
+41: [
     "## 12. Resumo Final e Conclusões\n",
     "\n",
     "### Síntese dos Resultados\n",
