@@ -4,7 +4,7 @@ Total cells: 37
   Cell  1: markdown   | ## 1. Importação das Bibliotecas
   Cell  2: code       | import pandas as pd
   Cell  3: markdown   | ## 2. Carregamento e Filtragem dos Dados
-  Cell  4: code       | # ⚠️ Ajuste o caminho para onde seu arquivo CSV está salvo
+  Cell  4: code       | # Ajuste o caminho para onde seu arquivo CSV está salvo
   Cell  5: code       | # Filtrando apenas as 3 doenças escolhidas
   Cell  6: markdown   | ## 3. Análise Exploratória dos Dados (EDA)
   Cell  7: code       | # Distribuição das classes
