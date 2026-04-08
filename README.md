@@ -157,7 +157,7 @@ disease-prediction-ml/
 ├── 📂 data/
 │   └── dataset.csv               # Baixar do Kaggle (não incluso)
 │
-├── 📂 models/                    # Artefatos exportados (rf_model.pkl, label_encoder.pkl)
+├── 📂 models/                    # Artefatos exportados (rf_model.pkl, label_encoder.pkl, selected_features.json)
 │
 ├── 📂 templates/                 # Arquivo HTML do frontend (index.html)
 ├── 📂 static/                    # Estilos premium (CSS) e Lógica (JS)
