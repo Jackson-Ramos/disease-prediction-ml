@@ -157,7 +157,7 @@ disease-prediction-ml/
 ├── 📂 data/
 │   └── dataset.csv               # Baixar do Kaggle (não incluso)
 │
-├── 📂 models/                    # Artefatos exportados (rf_model.pkl, label_encoder.pkl)
+├── 📂 models/                    # Artefatos exportados (rf_model.pkl, label_encoder.pkl, selected_features.json)
 │
 ├── 📂 templates/                 # Arquivo HTML do frontend (index.html)
 ├── 📂 static/                    # Estilos premium (CSS) e Lógica (JS)
@@ -196,12 +196,12 @@ cd disease-prediction-ml
 
 ```bash
 # Windows
-python -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 
 # Linux / macOS
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 3. Instale as dependências
