@@ -38,3 +38,7 @@ __pycache__/
 # Arquivos de Sistema Operacional
 .DS_Store
 Thumbs.db
+
+# Arquivos de Artigo
+artigo/~$tigo_final.docx
+artigo/artigo_final.docx
