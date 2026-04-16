@@ -77,7 +77,7 @@ def main():
     le_path = os.path.join(MODELS_DIR, 'label_encoder.pkl')
     joblib.dump(le, le_path)
     
-    print("\n[✓] Artefatos salvos em /models/")
+    print("\n[OK] Artefatos salvos em /models/")
     print(f" - {model_path}")
     print(f" - {le_path}")
     print(f" - {features_path}")

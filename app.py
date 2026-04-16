@@ -28,7 +28,9 @@ def load_models():
     else:
         print("Aviso: Modelos não encontrados na pasta /models/")
 
+# Triggering reload to detect new models
 load_models()
+print("Servidor SymptoAI pronto e aguardando requisições.")
 
 @app.route('/')
 def index():
